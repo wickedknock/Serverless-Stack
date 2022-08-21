@@ -32,7 +32,7 @@ func main() {
 	lambda.Start(handler)
 }
 
-const tableName = "LambdaInGoUser"
+const tableName = "TestUsers"
 
 func handler(req events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 
@@ -48,7 +48,7 @@ func handler(req events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse
 		return handlers.GetUser(req, tableName, dynaClient)
 
 	default:
-		return handlers.UnhandledMethod(req, tableName, dynaClient)
+		return handlers.UnhandledMethod()
 	}
 
 }
